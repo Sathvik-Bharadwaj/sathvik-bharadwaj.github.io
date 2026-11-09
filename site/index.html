@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://api.web3forms.com; media-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>circuitEvolve · AI for analog circuit design</title>
+<meta name="description" content="OPTIM explores circuit parameters through simulation, helping analog teams reach target specifications in the tools they already use.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://www.circuitevolve.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="circuitEvolve · AI for analog circuit design">
+<meta property="og:description" content="OPTIM explores circuit parameters through simulation, helping analog teams reach target specifications in the tools they already use.">
+<meta property="og:url" content="https://www.circuitevolve.com/">
+<meta property="og:image" content="https://www.circuitevolve.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preload" href="assets/jakarta.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/boot.js"></script>
+<link rel="stylesheet" href="css/site.css">
+<script type="module" src="js/main.js"></script>
+<script src="js/ce-sims.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="circuitEvolve home"><span class="mark"><img src="assets/ce-logo.png" alt=""></span>circuitEvolve</a>
+  <nav class="navlinks" id="navlinks" aria-label="Main"><a href="thesis.html">Our thesis</a><a href="optim.html">How OPTIM works</a><a href="news.html">Newsroom</a><a href="contact.html" class="req">Request a demo</a><a class="m-only" href="demo.html">Try OPTIM yourself ↗</a></nav>
+  <div class="nav-cta"><a class="btn sm" href="demo.html">Try OPTIM <span class="arr">↗</span></a></div>
+  <button class="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
+</div></header>
+<main id="main">
+<section class="hero">
+  <div class="scene" data-scene="landscape" data-scroll="hero" id="landscape"><div class="scene-label scene-tag">BEST CANDIDATE</div></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow rise" style="--d:.05s">AI for analog circuit design</span>
+      <h1 class="oneline" data-split data-delay=".1">Design. Iterate. <span class="grad">Converge.</span></h1>
+      <p class="lede rise" style="--d:.45s">OPTIM explores circuit parameters through simulation, helping your team reach target specifications in the tools you already use.</p>
+      <div class="rise" style="--d:.6s"><div class="cta-combo">
+  <a class="cta-main" href="demo.html"><strong>Try OPTIM yourself</strong><span>Run a real optimization on a sample amplifier, right in your browser. No sign-up.</span><span class="go" aria-hidden="true">↗</span></a>
+  <div class="cta-sub"><span>Want it on your own circuit?</span><a href="contact.html">Request a demo →</a></div>
+</div></div>
+    </div>
+  </div>
+  <p class="scene-hint rise" style="--d:1s" aria-hidden="true"><b>Every point is a candidate design.</b><br>Click the surface to start a new search.</p>
+</section>
+
+<section class="sec">
+  <div class="wrap thesis-tease">
+    <div>
+      <span class="eyebrow" data-reveal>Our thesis</span>
+      <p class="big-statement" data-scrub style="margin-top:22px">Digital design became software decades ago. Analog design never did. It is still tuned by hand, one simulation at a time, and it is still where silicon meets the real world.</p>
+    </div>
+    <div class="stack" data-reveal style="--d:.1s">
+      <p>We think the search through an analog design space should be done by computation, with engineers setting the goals and judging the evidence. That idea shapes everything we build.</p>
+      <a class="tlink" href="thesis.html">Read our thesis ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <div class="head">
+      <div data-reveal><span class="eyebrow"><span class="n">01</span> OPTIM, running</span><h2 data-split>From baseline to converged, live.</h2></div>
+      <p data-reveal style="--d:.08s">Preflight passes. A change is proposed, simulated at every selected corner and scored against all eight targets. The score and the targets update, generation after generation, until the design passes.</p>
+    </div>
+    <div class="frame" data-reveal><div class="sim" data-ce-sim="optim-run" data-seed="7" data-speed=".85" aria-label="OPTIM desktop running an evolution on a two-stage amplifier"></div></div>
+    <div class="caption"><span><span class="live" style="vertical-align:1px;margin-right:8px"></span>Run Evolution · test/poweramp_tb</span><span>Illustrative sequence rendered in your browser</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="head">
+      <div data-reveal><span class="eyebrow"><span class="n">02</span> How it works</span><h2 data-split>One loop. Four decisions.</h2></div>
+      <div data-reveal style="--d:.08s;display:grid;gap:18px;justify-items:start"><p>You decide what good looks like and what may change. OPTIM does the searching. You make the final call.</p><a class="tlink" href="optim.html">See how OPTIM works ↗</a></div>
+    </div>
+    <div class="flow">
+      <div class="flow-line" aria-hidden="true"><i></i></div>
+      <div class="flow-step" data-reveal><span class="k">01</span><h3>Bring your baseline</h3><p>Start from a simulation you have already run, in the tools you already use.</p></div>
+      <div class="flow-step" data-reveal style="--d:.08s"><span class="k">02</span><h3>Set the boundaries</h3><p>Write the targets, choose what may change and every corner it must pass.</p></div>
+      <div class="flow-step" data-reveal style="--d:.16s"><span class="k">03</span><h3>Let OPTIM explore</h3><p>Candidates are proposed, simulated and scored, generation after generation.</p></div>
+      <div class="flow-step" data-reveal style="--d:.24s"><span class="k">04</span><h3>Review, then apply</h3><p>Check the measurements and changes, then publish the result you trust.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight alt">
+  <div class="wrap">
+    <div class="head"><div data-reveal><span class="eyebrow"><span class="n">03</span> Recognition</span><h2 data-split>Real momentum.</h2></div><div data-reveal style="--d:.08s;display:grid;gap:18px;justify-items:start"><p>A research publication, a government grant, NVIDIA's startup program and Inc42's watchlist, all in 2026.</p><a class="tlink" href="news.html">Visit the newsroom ↗</a></div></div>
+    <div class="recog">
+      <a href="news.html#nvidia" data-reveal><span class="logo-plate"><img src="assets/nvidia.svg" alt="NVIDIA"></span><small>NVIDIA Inception program member</small></a>
+      <a href="news.html#chipmat" data-reveal style="--d:.06s"><span class="logo-plate"><img class="kerala" src="assets/semicon-keralam.png" alt="Semicon Keralam"></span><small>CHIPMAT grant, Government of Kerala</small></a>
+      <a href="news.html#mlcad" data-reveal style="--d:.12s"><span class="logo-plate"><strong>MLCAD 2026</strong></span><small>NetGen research paper</small></a>
+      <a href="news.html#inc42" data-reveal style="--d:.18s"><span class="logo-plate"><img src="assets/inc42-dark.svg" alt="Inc42"></span><small>Inc42 30 Startups To Watch</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight">
+  <div class="wrap">
+    <div class="cta" data-reveal>
+      <div class="scene" data-scene="waves" id="waves-home"></div>
+      <span class="eyebrow">Start a conversation</span>
+      <h2>Bring your next design challenge.</h2>
+      <p>See how OPTIM fits your circuit, your targets and your workflow, or try it on a sample circuit first.</p>
+      <div class="cta-combo">
+  <a class="cta-main" href="demo.html"><strong>Try OPTIM yourself</strong><span>Run a real optimization on a sample amplifier, right in your browser. No sign-up.</span><span class="go" aria-hidden="true">↗</span></a>
+  <div class="cta-sub"><span>Want it on your own circuit?</span><a href="contact.html">Request a demo →</a></div>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="circuitEvolve home"><span class="mark"><img src="assets/ce-logo.png" alt=""></span>circuitEvolve</a>
+        <p>AI for analog circuit design. Simulation-driven exploration, engineer-led decisions.</p>
+      </div>
+      <nav class="footer-col" aria-label="Product"><h4>Product</h4><a href="optim.html">How OPTIM works</a><a href="demo.html">Try OPTIM yourself</a><a href="contact.html">Request a demo</a></nav>
+      <nav class="footer-col" aria-label="Company"><h4>Company</h4><a href="thesis.html">Our thesis</a><a href="news.html">Newsroom</a><a href="https://www.linkedin.com/company/circuitevolve/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></nav>
+    </div>
+    <div class="footer-bot">
+      <span>© <span data-year>2026</span> circuitEvolve</span>
+      <span class="footer-links"><a href="mailto:hello@circuitevolve.com">hello@circuitevolve.com</a><a href="#main">Back to top ↑</a></span>
+    </div>
+  </div>
+</footer>
+<button class="motion-toggle" type="button" aria-pressed="false">Pause motion <span aria-hidden="true">Ⅱ</span></button>
+</body>
+</html>

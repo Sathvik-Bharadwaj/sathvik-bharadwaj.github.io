@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://api.web3forms.com; media-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Our thesis · circuitEvolve</title>
+<meta name="description" content="Why analog design is the next frontier for computation, and why circuitEvolve exists.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://www.circuitevolve.com/thesis.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Our thesis · circuitEvolve">
+<meta property="og:description" content="Why analog design is the next frontier for computation, and why circuitEvolve exists.">
+<meta property="og:url" content="https://www.circuitevolve.com/thesis.html">
+<meta property="og:image" content="https://www.circuitevolve.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preload" href="assets/jakarta.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/boot.js"></script>
+<link rel="stylesheet" href="css/site.css">
+<script type="module" src="js/main.js"></script>
+<script src="js/ce-sims.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="circuitEvolve home"><span class="mark"><img src="assets/ce-logo.png" alt=""></span>circuitEvolve</a>
+  <nav class="navlinks" id="navlinks" aria-label="Main"><a href="thesis.html" aria-current="page">Our thesis</a><a href="optim.html">How OPTIM works</a><a href="news.html">Newsroom</a><a href="contact.html" class="req">Request a demo</a><a class="m-only" href="demo.html">Try OPTIM yourself ↗</a></nav>
+  <div class="nav-cta"><a class="btn sm" href="demo.html">Try OPTIM <span class="arr">↗</span></a></div>
+  <button class="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
+</div></header>
+<main id="main">
+<section class="phero" style="min-height:min(84vh,820px);display:flex;align-items:flex-end">
+  <div class="scene" data-scene="waves" id="waves-thesis-hero"></div>
+  <div class="wrap">
+    <span class="eyebrow rise">Our thesis</span>
+    <h1 data-split>Analog design. <span class="grad">An open frontier.</span></h1>
+    <p class="rise" style="--d:.35s">Digital design became software. Analog design never made that transition, and it is still where silicon meets the real world. This is what we believe, and why we are building circuitEvolve.</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:clamp(40px,5vw,70px)">
+  <div class="wrap">
+
+    <article class="chap">
+      <div class="chap-text" data-reveal>
+        <span class="num">01 · THE WORLD</span>
+        <h2 data-split>The physical world is analog.</h2>
+        <p class="lead">Every signal that matters to people starts as something continuous: a voice, a heartbeat, a radio wave, the charge in a battery.</p>
+        <p>Before a processor can do anything with it, an analog circuit has to sense it, amplify it, filter it and convert it into numbers. On the way back out, analog circuits turn numbers into sound, motion, light and power. Sensors, radios, power management, data converters, clocks and the links that carry data between chips all depend on them.</p>
+        <p>Analog behaviour is continuous and coupled. A transistor's width and length, the current through it and the capacitor beside it all shape gain, speed, noise, stability and power at the same time. Change one, and the others move.</p>
+      </div>
+      <figure class="chap-media" data-reveal style="--d:.08s;margin:0">
+        <div class="stage"><div class="scene" data-scene="waves" data-quantize="1" id="waves-ch1"></div><span class="stage-tag tl">CONTINUOUS</span><span class="stage-tag tr">SAMPLED</span></div>
+        <figcaption>Scroll: a continuous signal is sampled and quantised, the boundary analog circuits manage.</figcaption>
+      </figure>
+    </article>
+
+    <article class="chap flip">
+      <div class="chap-text" data-reveal>
+        <span class="num">02 · THE GAP</span>
+        <h2 data-split>Digital became software. Analog never did.</h2>
+        <p class="lead">Over the past few decades, digital chip design was transformed by automation.</p>
+        <p>Engineers describe logic in code. Synthesis, placement, routing and verification tools turn that description into billions of transistors, searching enormous design spaces on the engineer's behalf. Productivity grew with computation.</p>
+        <p>Analog design took a different path. Its circuits have far fewer transistors but are far less forgiving: each one is a carefully tuned balance of physics. The core loop is still largely manual. An expert adjusts a value, runs a simulation, reads the waveform, judges the result, and goes around again.</p>
+        <p class="pull">The tools simulate. The engineer still searches.</p>
+      </div>
+      <figure class="chap-media" data-reveal style="--d:.08s;margin:0">
+        <div class="stage" data-flows></div>
+        <figcaption>Digital flows through automated stages. Analog still goes round a manual loop.</figcaption>
+      </figure>
+    </article>
+
+    <article class="chap">
+      <div class="chap-text" data-reveal>
+        <span class="num">03 · THE COST</span>
+        <h2 data-split>The loop that eats the schedule.</h2>
+        <p class="lead">A single amplifier has a dozen sizes, bias currents and compensation values, and they all interact.</p>
+        <p>Every one of them must work not once but across manufacturing variation, temperature and supply voltage: the corners. A change that fixes stability at one corner can break bandwidth at another. So the loop repeats: tweak, simulate every corner, compare, tweak again.</p>
+        <p>That repetition consumes the time of the scarcest people in semiconductors, experienced analog designers. Time spent nudging values is time not spent on architecture, on new topologies, or on the questions only an expert can answer.</p>
+      </div>
+      <figure class="chap-media" data-reveal style="--d:.08s;margin:0">
+        <div class="stage"><div class="sim" data-ce-sim="bode" data-seed="8" data-speed=".85" aria-label="Loop-gain response evolving as compensation is tuned"></div></div>
+        <figcaption>A loop-gain response being tuned for stability. Illustrative simulation.</figcaption>
+      </figure>
+    </article>
+
+    <article class="chap flip">
+      <div class="chap-text" data-reveal>
+        <span class="num">04 · THE SPACE</span>
+        <h2 data-split>The space is larger than intuition.</h2>
+        <p class="lead">Ten parameters, each with a wide range of sensible values, already describe more circuits than anyone could simulate one by one.</p>
+        <p>Most of them fail at least one requirement. A small region meets every target, and inside it lies a front of best trade-offs: designs where you cannot gain more speed without spending more power or giving up gain.</p>
+        <p>Finding that front by hand means relying on experience and a few well-chosen experiments. It works, and it is how great circuits have always been made. But it leaves most of the space unexplored.</p>
+        <div class="kv"><div><b>10</b><span>interacting values in our sample amplifier</span></div><div><b>5</b><span>corners every candidate must pass</span></div><div><b>8</b><span>targets scored for every candidate</span></div></div>
+      </div>
+      <figure class="chap-media" data-reveal style="--d:.08s;margin:0">
+        <div class="stage"><div class="scene" data-scene="cloud" data-progress="1" id="cloud-ch4"><span class="scene-label axis-tag" data-axis="gain">GAIN</span><span class="scene-label axis-tag" data-axis="bw">BANDWIDTH</span><span class="scene-label axis-tag" data-axis="power">POWER</span><span class="scene-label axis-tag pick" data-axis="pick">CHOSEN DESIGN</span></div></div>
+        <figcaption>Each point is a possible design. Scroll: the ones that pass light up, then the front of best trade-offs, then one choice.</figcaption>
+      </figure>
+    </article>
+
+    <article class="chap">
+      <div class="chap-text" data-reveal>
+        <span class="num">05 · THE SEARCH</span>
+        <h2 data-split>Computation can do the searching.</h2>
+        <p class="lead">OPTIM treats design as a search, and runs it in your own simulator.</p>
+        <p>It starts from a design you have already simulated. A model proposes a coordinated change; the circuit is simulated at every selected corner and scored against your targets. The best candidates seed the next generation, and population by population the search moves toward designs that pass everywhere.</p>
+        <p>No pre-training on proprietary data is needed. The evidence comes from simulating your circuit, with your models, under your conditions.</p>
+      </div>
+      <figure class="chap-media" data-reveal style="--d:.08s;margin:0">
+        <div class="stage"><div class="scene" data-scene="landscape" data-seed="9" id="landscape-ch5"><div class="scene-label scene-tag">BEST CANDIDATE</div></div><span class="stage-tag bl">GENERATION <b data-hud="gen">00</b></span><span class="stage-tag br">BEST SCORE <b data-hud="best">0.0000</b></span></div>
+        <figcaption>A population of candidates descending a design space. Click it to start a new search.</figcaption>
+      </figure>
+    </article>
+
+    <article class="chap flip">
+      <div class="chap-text" data-reveal>
+        <span class="num">06 · THE ENGINEER</span>
+        <h2 data-split>Engineers stay in control.</h2>
+        <p class="lead">Automation is only useful if you can trust it.</p>
+        <p>You decide what good looks like: the targets, their priorities, which values may change and which conditions must pass. Every candidate is kept with its lineage, its measured results at every corner, the exact netlist changes, the model's written rationale and its cost.</p>
+        <p>Nothing touches your schematic until you choose a result and publish it.</p>
+        <p class="pull">A higher score is not a pass. The measurements decide.</p>
+      </div>
+      <figure class="chap-media" data-reveal style="--d:.08s;margin:0">
+        <div class="stage"><div class="sim" data-ce-sim="lineage" data-seed="11" data-speed=".85" aria-label="Candidate lineage chart"></div></div>
+        <figcaption>Candidate lineage: every result traceable to its parent. Illustrative.</figcaption>
+      </figure>
+    </article>
+
+    <article class="chap">
+      <div class="chap-text" data-reveal>
+        <span class="num">07 · WHY US</span>
+        <h2 data-split>That is why circuitEvolve exists.</h2>
+        <p class="lead">We are building toward an analog workflow where designers explore more, understand trade-offs sooner, and move from specification to silicon with confidence.</p>
+        <p>OPTIM is the first step: simulation-driven optimization for circuits you already have. Our research on NetGen, presented at MLCAD 2026, looks further ahead, at agents that generate analog netlists and learn from their failures.</p>
+        <p>The goal is the same throughout: give analog engineers the leverage digital engineers have had for decades.</p>
+      </div>
+      <figure class="chap-media" data-reveal style="--d:.08s;margin:0">
+        <div class="stage"><div class="scene" data-scene="die" id="die-ch7"><span class="scene-label axis-tag pick" data-die="ota">ANALOG FRONT END</span></div></div>
+        <figcaption>A mixed-signal chip: the analog blocks are where OPTIM works.</figcaption>
+      </figure>
+    </article>
+
+  </div>
+</section>
+
+<section class="sec tight"><div class="wrap"><div class="cta" data-reveal>
+  <span class="eyebrow">Build the next era with us</span><h2>See the thesis in action.</h2><p>Run OPTIM on a sample amplifier in your browser, or bring us your next design challenge.</p>
+  <div class="cta-combo">
+  <a class="cta-main" href="demo.html"><strong>Try OPTIM yourself</strong><span>Run a real optimization on a sample amplifier, right in your browser. No sign-up.</span><span class="go" aria-hidden="true">↗</span></a>
+  <div class="cta-sub"><span>Want it on your own circuit?</span><a href="contact.html">Request a demo →</a></div>
+</div>
+</div></div></section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="circuitEvolve home"><span class="mark"><img src="assets/ce-logo.png" alt=""></span>circuitEvolve</a>
+        <p>AI for analog circuit design. Simulation-driven exploration, engineer-led decisions.</p>
+      </div>
+      <nav class="footer-col" aria-label="Product"><h4>Product</h4><a href="optim.html">How OPTIM works</a><a href="demo.html">Try OPTIM yourself</a><a href="contact.html">Request a demo</a></nav>
+      <nav class="footer-col" aria-label="Company"><h4>Company</h4><a href="thesis.html">Our thesis</a><a href="news.html">Newsroom</a><a href="https://www.linkedin.com/company/circuitevolve/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></nav>
+    </div>
+    <div class="footer-bot">
+      <span>© <span data-year>2026</span> circuitEvolve</span>
+      <span class="footer-links"><a href="mailto:hello@circuitevolve.com">hello@circuitevolve.com</a><a href="#main">Back to top ↑</a></span>
+    </div>
+  </div>
+</footer>
+<button class="motion-toggle" type="button" aria-pressed="false">Pause motion <span aria-hidden="true">Ⅱ</span></button>
+</body>
+</html>

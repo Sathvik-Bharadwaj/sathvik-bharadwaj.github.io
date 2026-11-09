@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://api.web3forms.com; media-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Try OPTIM yourself · circuitEvolve</title>
+<meta name="description" content="An interactive replica of the OPTIM desktop and dashboard, running a real optimization of a two-stage amplifier in your browser.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://www.circuitevolve.com/demo.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Try OPTIM yourself · circuitEvolve">
+<meta property="og:description" content="An interactive replica of the OPTIM desktop and dashboard, running a real optimization of a two-stage amplifier in your browser.">
+<meta property="og:url" content="https://www.circuitevolve.com/demo.html">
+<meta property="og:image" content="https://www.circuitevolve.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preload" href="assets/jakarta.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/boot.js"></script>
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/demo.css">
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/demo.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="circuitEvolve home"><span class="mark"><img src="assets/ce-logo.png" alt=""></span>circuitEvolve</a>
+  <nav class="navlinks" id="navlinks" aria-label="Main"><a href="thesis.html">Our thesis</a><a href="optim.html">How OPTIM works</a><a href="news.html">Newsroom</a><a href="contact.html" class="req">Request a demo</a><a class="m-only" href="demo.html">Try OPTIM yourself ↗</a></nav>
+  <div class="nav-cta"><a class="btn sm" href="demo.html" aria-current="page">Try OPTIM <span class="arr">↗</span></a></div>
+  <button class="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
+</div></header>
+<main id="main">
+<section class="demo-top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow rise">Interactive demo</span>
+      <h1 data-split>Try OPTIM yourself.</h1>
+      <p class="rise" style="--d:.35s">This is the OPTIM desktop and dashboard, running a real optimization of a two-stage amplifier in your browser. Follow the numbered guide, or explore freely. Nothing is installed and nothing leaves your browser.</p>
+    </div>
+    <div class="side rise" style="--d:.45s"><p>Want this on your own circuit?</p><a class="btn ghost sm" href="contact.html">Request a demo <span class="arr">↗</span></a></div>
+  </div>
+</section>
+<section>
+  <div class="wrap demo-grid">
+    <div id="optim-demo">
+      <noscript><div class="card"><h3>The interactive demo needs JavaScript.</h3><p>Turn JavaScript on to try OPTIM, or <a class="tlink" href="contact.html">request a guided demo</a>.</p></div></noscript>
+    </div>
+    <aside class="guide" id="demo-guide" aria-label="Demo guide">
+      <div class="gcard">
+        <h3>Your guide</h3>
+        <ol class="gsteps"></ol>
+        <div class="gbtns"><button class="gbtn" type="button" data-g="show">Show me where</button><button class="gbtn on" type="button" data-g="hint" aria-pressed="true">Highlight next step</button></div>
+        <p data-g="done" hidden>That is the full OPTIM workflow. Try changing a target, the model or the reasoning effort, and run again: the settings really change the outcome.</p>
+        <div class="gmeta"><span>DEMO PACING</span></div>
+        <div class="gbtns"><button class="gbtn" type="button" data-speed="1">Relaxed</button><button class="gbtn" type="button" data-speed="2.5">Normal</button><button class="gbtn" type="button" data-speed="6">Fast</button></div>
+      </div>
+      <div class="gcard" id="demo-circuit">
+        <h3>What the circuit is doing</h3>
+        <p data-g="empty">Load the baseline to see the amplifier, its frequency response and its eight targets.</p>
+        <div data-g="body" hidden style="display:grid;gap:10px">
+          <div class="gschem"></div>
+          <div class="gbode"><canvas aria-label="Loop gain of the baseline (grey) and the current best candidate (blue)"></canvas></div>
+          <div class="tchips"></div>
+          <div class="gmeta"></div>
+        </div>
+      </div>
+      <p class="fine" style="margin:0 4px">The amplifier is evaluated by an analytical circuit model and proposals come from an in-browser stand-in for the language model, so a run takes seconds instead of hours. The workflow, controls and checks follow the OPTIM user guide.</p>
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="circuitEvolve home"><span class="mark"><img src="assets/ce-logo.png" alt=""></span>circuitEvolve</a>
+        <p>AI for analog circuit design. Simulation-driven exploration, engineer-led decisions.</p>
+      </div>
+      <nav class="footer-col" aria-label="Product"><h4>Product</h4><a href="optim.html">How OPTIM works</a><a href="demo.html">Try OPTIM yourself</a><a href="contact.html">Request a demo</a></nav>
+      <nav class="footer-col" aria-label="Company"><h4>Company</h4><a href="thesis.html">Our thesis</a><a href="news.html">Newsroom</a><a href="https://www.linkedin.com/company/circuitevolve/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></nav>
+    </div>
+    <div class="footer-bot">
+      <span>© <span data-year>2026</span> circuitEvolve</span>
+      <span class="footer-links"><a href="mailto:hello@circuitevolve.com">hello@circuitevolve.com</a><a href="#main">Back to top ↑</a></span>
+    </div>
+  </div>
+</footer>
+<button class="motion-toggle" type="button" aria-pressed="false">Pause motion <span aria-hidden="true">Ⅱ</span></button>
+</body>
+</html>
