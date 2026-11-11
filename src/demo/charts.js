@@ -47,7 +47,7 @@ export function pareto(cv, tip, onPick) {
       c.clearRect(0, 0, w, h);
       const { gens, xm, ym, sel, targets } = st;
       const val = (g, m) => (m === 'score' ? g.score : g.eval.ok && g.eval.worst[m] ? g.eval.worst[m].worst : null);
-      const ok = gens.filter(g => val(g, xm) != null && val(g, ym) != null && g.score > 0);
+      const ok = gens.filter(g => val(g, xm) != null && val(g, ym) != null && g.eval.ok);
       if (!ok.length) { c.fillStyle = T.muted; c.font = '13px sans-serif'; c.textAlign = 'center'; c.fillText('No generation has both measurements yet.', w / 2, h / 2); pts = []; return; }
       let xs = ok.map(g => val(g, xm)), ys = ok.map(g => val(g, ym));
       const tx = targets.find(t => t.id === xm), ty = targets.find(t => t.id === ym);
@@ -90,12 +90,12 @@ export function lineage(cv, tip) {
     const { c, w, h } = fitCanvas(cv), T = theme(cv.closest('.ow'));
     c.clearRect(0, 0, w, h);
     const { gens, targets } = st;
-    const valid = gens.filter(g => g.score > 0);
+    const valid = gens.filter(g => g.eval.ok);
     const ys = valid.map(g => g.score);
     let y0 = Math.min(...ys, 1), y1 = Math.max(...ys, 1); const py = (y1 - y0) * 0.12 || 0.01; y0 -= py; y1 += py;
-    const hasInvalid = gens.some(g => g.score < 0);
+    const hasInvalid = gens.some(g => !g.eval.ok);
     const A = axes(c, w, h - (hasInvalid ? 26 : 0), T, [-0.5, Math.max(2, gens.length - 0.5)], [y0, y1], 'Generation', 'Combined score');
-    const Ypos = g => (g.score < 0 ? h - 14 : A.Y(g.score));
+    const Ypos = g => (!g.eval.ok ? h - 14 : A.Y(g.score));
     if (hasInvalid) { c.fillStyle = T.muted; c.font = '10px JetBrains Mono, monospace'; c.textAlign = 'left'; c.fillText('score −1 · invalid', A.pad.l + 4, h - 4); }
     const byGen = new Map(gens.map(g => [g.gen, g]));
     const anc = new Set();
@@ -111,11 +111,11 @@ export function lineage(cv, tip) {
     for (const g of gens) {
       const X = A.X(g.gen), Y = Ypos(g), on = anc.has(g.gen) || g.gen === st.sel;
       c.beginPath(); c.arc(X, Y, on ? 6.5 : 5, 0, Math.PI * 2);
-      c.fillStyle = g.score < 0 ? T.fail : g.eval.pass === targets.length ? T.pass : T.c[g.island % 2 ? 1 : 0];
+      c.fillStyle = !g.eval.ok ? T.fail : g.eval.pass === targets.length ? T.pass : T.c[g.island % 2 ? 1 : 0];
       c.globalAlpha = pinned != null && !anc.has(g.gen) ? 0.45 : 1; c.fill(); c.globalAlpha = 1;
       if (g.gen === st.sel) { c.strokeStyle = T.text; c.lineWidth = 2; c.stroke(); }
       const kids = gens.filter(k => k.parent === g.gen).length;
-      pts.push({ x: X, y: Y, g, tip: 'Generation ' + g.gen + (g.round ? ' (round ' + g.round + ', local ' + g.local + ')' : '') + '\nScore ' + (g.score < 0 ? '−1 (invalid)' : g.score.toFixed(4)) + '\nIsland ' + g.island + ' · ' + (g.eval.ok ? 'correct' : 'incorrect') + '\nChildren ' + kids });
+      pts.push({ x: X, y: Y, g, tip: 'Generation ' + g.gen + (g.round ? ' (round ' + g.round + ', local ' + g.local + ')' : '') + '\nScore ' + (!g.eval.ok ? '−1 (invalid)' : g.score.toFixed(4) + ' / 2.0000') + '\nIsland ' + g.island + ' · ' + (g.eval.ok ? 'correct' : 'incorrect') + '\nChildren ' + kids });
     }
     // legend
     c.font = '11px Plus Jakarta Sans, sans-serif'; c.textAlign = 'left'; c.textBaseline = 'middle';
