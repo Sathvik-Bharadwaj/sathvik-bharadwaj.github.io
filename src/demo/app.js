@@ -593,7 +593,7 @@ function init() {
       h('div', { class: 'dtabs', role: 'tablist' }, ['Pareto', 'Lineage', 'Spider', 'Metrics', 'Diff', 'Reasoning', 'API Cost'].map(t => h('button', { type: 'button', role: 'tab', 'aria-selected': dash.tab === t, onclick: () => { dash.tab = t; renderDash(); } }, t))),
       h('div', { class: 'dcards' },
         h('div', { class: 'dcard' }, h('small', null, 'Best generation'), h('b', null, best ? 'Gen ' + best.gen : '—')),
-        h('div', { class: 'dcard' }, h('small', null, 'Targets passing'), h('b', null, best ? best.eval.pass + ' / ' + r.targets.length : '—')),
+        h('div', { class: 'dcard' }, h('small', null, 'Targets passing'), h('b', { style: { color: best && best.eval.pass === r.targets.length ? 'var(--w-pass)' : 'var(--w-fail)' } }, best ? best.eval.pass + ' / ' + r.targets.length : '—')),
         h('div', { class: 'dcard' }, h('small', null, 'Active time'), h('b', null, dur(r.active))),
         h('div', { class: 'dcard' }, h('small', null, 'Estimated API cost'), h('b', null, '$' + r.spent.toFixed(6)))));
     const T = dash.tab;
@@ -611,7 +611,7 @@ function init() {
       const cv = h('canvas'), tip = h('div', { class: 'dtip' });
       const ch = lineage(cv, tip);
       main.appendChild(h('div', { class: 'dpanel' }, h('h4', null, 'Candidate lineage'), h('div', { class: 'dchart' }, cv, tip),
-        h('p', null, 'Horizontal position is generation; vertical is combined score. Lines connect each candidate to its parent. Click a node to highlight its ancestry. Islands are separate search populations, not process corners.')));
+        h('p', null, 'Horizontal position is generation; vertical is combined score (1.0000 = baseline, 2.0000 = every target passes at every corner). Lines connect each candidate to its parent. Click a node to highlight its ancestry. Islands are separate search populations, not process corners.')));
       requestAnimationFrame(() => ch.draw({ gens: r.gens, sel: dash.sel, targets: r.targets }));
     } else if (T === 'Spider') {
       const cv = h('canvas');
@@ -743,7 +743,7 @@ function init() {
     bodePlot(bodeC, bode(BASE, slow), g ? bode(p, slow) : null, { label: 'Loop gain · ' + slow.id });
     setKids(chips, tgt.map(t => { const w = e.ok ? e.worst[t.id] : null; return h('div', { class: 'tchip ' + (w && w.pass ? 'p' : 'f'), title: t.plain || '' }, h('span', null, t.name.replace(/_.*/, '')), h('b', null, w ? fmt(w.worst, t.unit) : '—')); }));
     const passN = e.ok ? e.pass : 0;
-    setKids(meta, h('span', null, 'Showing ', h('b', null, st.published ? 'published gen ' + g.gen : g && g.gen ? 'best so far · gen ' + g.gen : 'baseline')), h('span', null, h('b', null, passN + '/' + tgt.length), ' targets pass at the worst corner'));
+    setKids(meta, h('span', null, 'Showing ', h('b', null, st.published ? 'published gen ' + g.gen : g && g.gen ? 'best so far · gen ' + g.gen : 'baseline')), h('span', null, h('b', null, passN + '/' + tgt.length), ' targets pass at the worst corner'), g && g.score != null ? h('span', null, 'Score ', h('b', null, g.score.toFixed(4)), ' of 2.0000') : null);
   }
   window.addEventListener('resize', () => { renderBaselineView(); if (dash.open && ['Pareto', 'Lineage', 'Spider'].includes(dash.tab)) renderDash(); });
 

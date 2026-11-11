@@ -51,7 +51,13 @@ function deficit(t, w) {
 const PRI = { Low: 0.5, Normal: 1, High: 2 };
 
 function evalP(p) { return evaluate(p, S.targets, S.corners, S.tb); }
-function scoreOf(e) { return e.ok ? e.raw / S.baseRaw : -1; }
+// combined score: 1.0000 = the baseline, 2.0000 = every included target passes at every selected corner,
+// −1 = invalid evaluation. Candidates worse than the baseline score below 1.
+function scoreOf(e) {
+  if (!e.ok) return -1;
+  if (S.baseRaw >= 0.999999) return 1 + e.raw - S.baseRaw;
+  return 1 + (e.raw - S.baseRaw) / (1 - S.baseRaw);
+}
 
 function worstCorner(e, t) {
   let wid = S.corners[0], wv = e.per[wid][t.id];
